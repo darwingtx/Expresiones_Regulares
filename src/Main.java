@@ -1,9 +1,13 @@
+
 import Utilidades.Util;
 
-public class Main {
+    public class Main {
 
+       public static void main(String[] args) {
+        Array_1 x = new Array_1();
 
-    public static void main(String[] args) {
-        System.out.println(Util.Llenado(4));
+        x.getVect();
+       }
     }
-}
+
+   
