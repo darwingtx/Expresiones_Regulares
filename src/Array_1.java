@@ -7,22 +7,27 @@ import Utilidades.Util;
 
 public class Array_1 {
     public static ArrayList<Array_1> Array_1 = new ArrayList<>();
-    private double[] vect;
+    private double[] vect = new double[3];
 
     
     public Array_1() {
+    
+    }
+    public void llenarArray_1(){
         Util x = new Util();
-       int i = 1;//x.Primo();
-       for (int index = 0; index < i; index++) {
-        Array_1 z = new Array_1();
-        z.setVect(0, verificacion(index));
-        z.setVect(1, verificacion((int)z.getVect(0)));
-        z.setVect(2, verificacion((int)z.getVect(1)));
-       }
+        int i = 1;//x.Primo();
+        for (int index = 0; index < i; index++) {
+         Array_1 z = new Array_1();
+         z.setVect(0, verificacion(3));
+         z.setVect(1, verificacion(3));
+         z.setVect(2, verificacion(3));//(int)z.getVect(1)));
+         Array_1.add(z);
+        }
+
     }
     public int verificacion(int i){
-            int num = Util.Llenado(1);
-            String expr = "["+i+"-9]";
+            int num = Util.Llenado(3);
+            String expr = "\\d{"+i+"}";
             String valor = ""+num;
 
         if(valor.matches(expr)){
