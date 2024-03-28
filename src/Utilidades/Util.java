@@ -17,7 +17,7 @@ public class Util {
 
     //Da un numero primo
     public  int Primo(){
-        int n = (int) (Math.random() * 20 + 1);
+        int n = (int) (Math.random() * 10 + 1);
         if (isPrimo(n) == true){
             return n;
         }else{
