@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 
+
 import Utilidades.Util;
 
     public class Main {
@@ -14,11 +15,7 @@ import Utilidades.Util;
                    System.out.println( T.get(i).getVect(j));
            }
         }
-     
-       }
     }
-
-    /* //manera de mostrar
-    */
-
+}
+    
    
