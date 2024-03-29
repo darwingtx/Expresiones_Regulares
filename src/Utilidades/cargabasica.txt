@@ -1,0 +1,30 @@
+1010101010;Juan Perez;Docente de Planta;2023-05-15
+2020202020;Maria Garcia;Docente de Planta;2022-09-28
+3030303030;Carlos Rodriguez;Docente de Planta;2024-01-10
+4040404040;Laura Martinez;Docente de Planta;2023-11-03
+5050505050;Ana Lopez;Docente de Planta;2022-07-22
+6060606060;Pedro Sanchez;Docente de Planta;2024-03-07
+7070707070;Sofia Gonzalez;Docente de Planta;2023-08-19
+8080808080;Diego Hernandez;Docente de Planta;2022-12-30
+9090909090;Lucia Diaz;Docente de Planta;2024-02-14
+1111111111;Miguel Torres;Docente de Planta;2023-10-01
+1212121212;Paola Ramirez;Docente Ocasional;2023-04-05
+1313131313;Daniel Gomez;Docente Ocasional;2022-08-12
+1414141414;Valeria Vargas;Docente Ocasional;2024-02-18
+1515151515;Javier Silva;Docente Ocasional;2023-12-20
+1616161616;Camila Ruiz;Docente Ocasional;2022-11-25
+1717171717;Andres Castro;Docente Ocasional;2024-05-30
+1818181818;Isabella Acosta;Docente Ocasional;2023-09-10
+1919191919;Mateo Gutierrez;Docente Ocasional;2022-06-08
+2020202020;Carolina Munoz;Docente Ocasional;2024-01-16
+2121212121;Julian Hernandez;Docente Ocasional;2023-07-02
+2222222222;Alejandra Diaz;Docente de Catedra;2023-03-14
+2323232323;Roberto Martinez;Docente de Catedra;2022-10-09
+2424242424;Diana Sanchez;Docente de Catedra;2024-04-25
+2525252525;Gabriel Lopez;Docente de Catedra;2023-02-28
+2626262626;Valentina Rodriguez;Docente de Catedra;2022-05-17
+2727272727;Juan Pablo Gonzalez;Docente de Catedra;2024-06-22
+2828282828;Natalia Ramirez;Docente de Catedra;2023-01-11
+2929292929;Esteban Garcia;Docente de Catedra;2022-04-08
+3030303030;Marcela Perez;Docente de Catedra;2024-07-13
+3131313131;Andrea Torres;Docente de Catedra;2023-06-15
