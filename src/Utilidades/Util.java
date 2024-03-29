@@ -15,6 +15,10 @@ public class Util {
         return (int) (Math.random() * (max - min + 1)) + min;
     }
 
+    public static int Llenado(int min, int max){
+        return (int) (Math.random() * (max - min + 1)) + min;
+    }
+
     //Da un numero primo
     public  int Primo(){
         int n = (int) (Math.random() * 10 + 1);
