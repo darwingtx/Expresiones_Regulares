@@ -10,13 +10,11 @@ public class Main {
        public static void main(String[] args) {
        Array_3 x = new Array_3();
        x.CargarDatos("D:\\Users\\Usuario\\Documents\\NetBeansProjects\\AP4\\Expresiones_Regulares\\src\\Utilidades\\cargabasica.txt");
-       x.agregarObj();
+       //x.agregarObj();
        ArrayList<Array_3> T = Array_3.Array_3;
-       x.buscarTd();
-       Array2 x = new Array2();
-       x.LlenarArray2();
-       x.Listar();
-       x.NumeroMayor();
+      // x.buscarTd();
+       x.docenteMes();
+    
        
        
        }

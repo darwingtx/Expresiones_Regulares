@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.Iterator;
+
 import javax.swing.JOptionPane;
 
 public class Array_3 {
@@ -58,93 +58,122 @@ public class Array_3 {
     public void agregarObj() {
         String cc = "", nombre = "", tD = "", fecha = "";
         int op = Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar\n0.Salir\n"));
-        do{
+        do {
             cc = ingresoCc();
             nombre = JOptionPane.showInputDialog(null, "Digite el nombre del docente.");
             tD = ingresotD();
             fecha = ingresofech();
-            Array_3.add(new Array_3(cc, tD, fecha,nombre));
-         op = Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar\n0.Salir\n"));
-        }while (op == 1);
+            Array_3.add(new Array_3(cc, tD, fecha, nombre));
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar\n0.Salir\n"));
+        } while (op == 1);
 
     }
-    
-    public String ingresoCc(){
+
+    public String ingresoCc() {
         String regex = "^\\d+$";
         String cc = JOptionPane.showInputDialog(null, "Ingrese una cedula sin comas o puntos y solo con digitos.");
 
         while (!cc.matches(regex)) {
-            JOptionPane.showInputDialog(null, "Ingrese una cedula sin comas o puntos y solo con digitos.");            
-                error++;   
+            JOptionPane.showInputDialog(null, "Ingrese una cedula sin comas o puntos y solo con digitos.");
+            error++;
         }
-       return cc;
+        return cc;
     }
 
-    public String ingresotD(){
-            int opcion;
-            boolean salir = false;
-            while (!salir) {
-                String[] options = {"Docente de Planta", "Docente Ocasional", "Docente de Catedra"};
-                opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Tipos de docentes", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                switch (opcion) {
-                    case 0:
-                        return "Docente de Planta";
-                      
-                    case 1:
-                       return "Docente Ocasional";
-                        
-                    case 2:
-                        return "Docente de Catedra";
-                    default:
-                        JOptionPane.showMessageDialog(null, "Opción no válida. Intente de nuevo.");
-                }
+    public String ingresotD() {
+        int opcion;
+        boolean salir = false;
+        while (!salir) {
+            String[] options = { "Docente de Planta", "Docente Ocasional", "Docente de Catedra" };
+            opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Tipos de docentes",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            switch (opcion) {
+                case 0:
+                    return "Docente de Planta";
+
+                case 1:
+                    return "Docente Ocasional";
+
+                case 2:
+                    return "Docente de Catedra";
+                default:
+                    JOptionPane.showMessageDialog(null, "Opción no válida. Intente de nuevo.");
             }
+        }
 
         return null;
     }
 
-    public String ingresofech(){
-            Scanner scanner = new Scanner(System.in);
-            String fecha;
-            boolean fechaValida = false;
-            String regex = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
-            Pattern pattern = Pattern.compile(regex);
-    
-            do {
-                fecha = JOptionPane.showInputDialog(null,"Ingrese una fecha en formato dd/mm/aaaa: ");
-                Matcher matcher = pattern.matcher(fecha);
-                if (matcher.matches()) {
-                    fechaValida = true;
-                } else {
-                    System.out.println("Formato de fecha incorrecto. Por favor, vuelva a intentarlo.");
-                }
-            } while (!fechaValida);
-    
-            return fecha;
-       
-        }
+    public String ingresofech() {
+        Scanner scanner = new Scanner(System.in);
+        String fecha;
+        boolean fechaValida = false;
+        String regex = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
+        Pattern pattern = Pattern.compile(regex);
 
-     public void errores(){
-        JOptionPane.showInputDialog(null,"La cantidad de errores al ingresar la cedula es: "+error);
-     }
-     
-    public void buscarTd(){
+        do {
+            fecha = JOptionPane.showInputDialog(null, "Ingrese una fecha en formato dd/mm/aaaa: ");
+            Matcher matcher = pattern.matcher(fecha);
+            if (matcher.matches()) {
+                fechaValida = true;
+            } else {
+                System.out.println("Formato de fecha incorrecto. Por favor, vuelva a intentarlo.");
+            }
+        } while (!fechaValida);
 
-       Iterator<Array_3> x = Array_3.iterator();
-       JOptionPane.showMessageDialog(null, "A continuacion seleccione el tipo de docente");
+        return fecha;
+
+    }
+
+    public void errores() {
+        JOptionPane.showInputDialog(null, "La cantidad de errores al ingresar la cedula es: " + error);
+    }
+
+    public void buscarTd() {
+
+        Iterator<Array_3> x = Array_3.iterator();
+        JOptionPane.showMessageDialog(null, "A continuacion seleccione el tipo de docente");
         String td = ingresotD();
         float cont = 0;
         float porc = 0;
-       while(x.hasNext()){
-        Array_3 r = x.next();
-        if(r.gettD().equals(td)){
-            cont++;
+        while (x.hasNext()) {
+            Array_3 r = x.next();
+            if (r.gettD().equals(td)) {
+                cont++;
+            }
         }
-       }
-       porc = (cont*100)/Array_3.size();
-       JOptionPane.showMessageDialog(null, "El porcentaje de "+td+" es de: "+porc);
-    }   
-     
+        porc = (cont * 100) / Array_3.size();
+        JOptionPane.showMessageDialog(null, "El porcentaje de " + td + " es de: " + porc);
+    }
+
+    public void docenteMes() {
+        Iterator<Array_3> x = Array_3.iterator();
+        ArrayList<Array_3> aMeses = new ArrayList<>();
+        int opcion;
+        String[] options = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+        opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Mes",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        String[] optionD = { "Docente de Planta", "Docente Ocasional", "Docente de Catedra" };
+        int opcionD = JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Tipos de docentes",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, optionD, optionD[0]);
+        String mes = "" + (opcion + 1);
+        String regex;
+        if (Integer.parseInt(mes) < 10) {
+            mes = "0" + mes;
+        }
+        regex = "\\d{2}/" + mes + "/\\d{4}";
+                while (x.hasNext()) {
+                    Array_3 r = x.next();
+                    if (r.gettD().equals(optionD[opcionD])) {
+                        if (r.getFecha().matches(regex)) {
+                            aMeses.add(r);
+                        }
+                    }
+                }
+
+    }
+
     public String getCc() {
         return cc;
     }
