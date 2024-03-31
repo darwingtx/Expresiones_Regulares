@@ -75,6 +75,23 @@ public class Array2 {
 
     }
 
+    public void Mayor() {
+        int datos = 3;
+        int NumeroMayor = 0;
+
+        for (int i = 0; i < Array_2.size(); i++) {
+            for (int j = 0; j < datos; j++) {
+                if (NumeroMayor<=Array_2.get(i).get(j)) {
+                    NumeroMayor = Array_2.get(i).get(j);
+                }
+            }
+            datos += 2;
+
+        }
+        System.out.println(NumeroMayor);
+
+    }
+
     public Boolean verificacion(int i, char r, int n, char c) {
 
         String expr = "[" + r + "-9]{" + i + ",10}";
