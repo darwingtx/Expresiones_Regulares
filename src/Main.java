@@ -13,15 +13,18 @@ public class Main {
       //  x.agregarObj();
       //  ArrayList<Array_3> T = Array_3.Array_3;
       //  x.buscarTd();
-       Array2 y = new Array2();
-       y.LlenarArray2();
-       y.Listar();
-       y.Mayor();
+      //  Array2 y = new Array2();
+      //  y.LlenarArray2();
+      //  y.Listar();
+      //  y.Mayor();
 
       // LArray4 prueba = new LArray4();
       // prueba.Llenado();
       // prueba.Listar();
        
+      LTarjetas t = new LTarjetas();
+      t.Ingreso();
+      t.Listar();
        
        }
     }

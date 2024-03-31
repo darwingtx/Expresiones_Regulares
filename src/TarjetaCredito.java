@@ -4,7 +4,7 @@ public class TarjetaCredito {
     
     private String tipo;
     private long numTarj;
-    private LocalDate fecha;
+    private String fecha;
     private String nombre;
     private String apellido;
     private Short cvv;
@@ -27,10 +27,10 @@ public class TarjetaCredito {
     public void setNumTarj(long numTarj) {
         this.numTarj = numTarj;
     }
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
     public String getNombre() {
