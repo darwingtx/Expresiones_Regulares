@@ -1,9 +1,7 @@
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -70,7 +68,6 @@ public class LTarjetas {
     }
 
     public String ingresofech() {
-        Scanner scanner = new Scanner(System.in);
         String fecha;
         boolean fechaValida = false;
         String regex = "^(0[1-9]|1[0-2])/\\d{2}$";
