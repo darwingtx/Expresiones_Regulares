@@ -4,8 +4,10 @@ import java.io.File;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import java.awt.Dimension;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class Array_3 {
 
@@ -27,7 +29,7 @@ public class Array_3 {
         this.nombre = nombre;
     }
 
-    public void CargarDatos(String sfichero) {
+    public static void CargarDatos(String sfichero) {
         File fichero = new File(sfichero);
         Scanner s = null;
         try {
@@ -57,7 +59,7 @@ public class Array_3 {
 
     }
 
-    public void agregarObj() {
+    public static void agregarObj() {
         String cc = "", nombre = "", tD = "", fecha = "";
         int op = Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar\n0.Salir\n"));
         do {
@@ -71,18 +73,18 @@ public class Array_3 {
 
     }
 
-    public String ingresoCc() {
+    public static String ingresoCc() {
         String regex = "^\\d+$";
         String cc = JOptionPane.showInputDialog(null, "Ingrese una cedula sin comas o puntos y solo con digitos.");
 
         while (!cc.matches(regex)) {
-            JOptionPane.showInputDialog(null, "Ingrese una cedula sin comas o puntos y solo con digitos.");
+            cc = JOptionPane.showInputDialog(null, "Ingrese una cedula sin comas o puntos y solo con digitos.");
             error++;
         }
         return cc;
     }
 
-    public String ingresotD() {
+    public static String ingresotD() {
         int opcion;
         boolean salir = false;
         while (!salir) {
@@ -106,7 +108,7 @@ public class Array_3 {
         return null;
     }
 
-    public String ingresofech() {
+    public static String ingresofech() {
         Scanner scanner = new Scanner(System.in);
         String fecha;
         boolean fechaValida = false;
@@ -127,11 +129,11 @@ public class Array_3 {
 
     }
 
-    public void errores() {
-        JOptionPane.showInputDialog(null, "La cantidad de errores al ingresar la cedula es: " + error);
+    public static void errores() {
+        JOptionPane.showMessageDialog(null,  "La cantidad de errores al ingresar la cedula es: " + error);
     }
 
-    public void buscarTd() {
+    public static void buscarTd() {
 
         Iterator<Array_3> x = Array_3.iterator();
         JOptionPane.showMessageDialog(null, "A continuacion seleccione el tipo de docente");
@@ -148,7 +150,7 @@ public class Array_3 {
         JOptionPane.showMessageDialog(null, "El porcentaje de " + td + " es de: " + porc);
     }
 
-    public void docenteMes() {
+    public static void docenteMes() {
         Iterator<Array_3> x = Array_3.iterator();
         ArrayList<Array_3> aMeses = new ArrayList<>();
         int opcion;
@@ -173,9 +175,31 @@ public class Array_3 {
                         }
                     }
                 }
+            if(!aMeses.isEmpty()){
+                mostrar(aMeses);
+            }else{
+                JOptionPane.showMessageDialog(null, "No hubo coincidencia");
+            }
 
     }
 
+    public static void mostrar(ArrayList<Array_3> T) {
+
+        String s = "";
+        for (int i = 0; i < T.size(); i++) {
+                s += "Docente: "+T.get(i).getNombre()+" Cedula: "+T.get(i).getCc()+" "
+                +T.get(i).gettD()+" Fecha: "+T.get(i).getFecha()+"\n";
+            
+            
+        }
+     JTextArea textArea = new JTextArea(s);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        scrollPane.setPreferredSize(new Dimension(650, 500));
+        JOptionPane.showMessageDialog(null, scrollPane, "Array 3", 1);
+    }
+    
     public String getCc() {
         return cc;
     }

@@ -1,7 +1,6 @@
 package arrayLogic;
 
 import java.util.*;
-
 import javax.swing.JOptionPane;
 
 import Utilidades.Util;
@@ -15,30 +14,33 @@ public class Array_1 {
     }
 
     public static void llenarArray_1() {
+        if(!Array_1.isEmpty()){
+            Array_1.clear();
+        }
         Util x = new Util();
-        int i = 4;// x.Primo();
+        int i = 4;//x.Primo();
         for (int index = 0; index < i; index++) {
-            Array_1 z = new Array_1();
-            z.setVect(0, verificacion(index + 1, '0'));
-            z.setVect(1, verificacion(index + 1, Long.toString(z.getVect(0)).charAt(0)));
-            z.setVect(2, verificacion(index + 1, Long.toString(z.getVect(1)).charAt(0)));
-            Array_1.add(z);
+         Array_1 z = new Array_1();
+         z.setVect(0, verificacion(index+1,'0'));
+         z.setVect(1, verificacion(index+1, Long.toString(z.getVect(0)).charAt(0)));
+         z.setVect(2, verificacion(index+1,  Long.toString(z.getVect(1)).charAt(0)));
+         Array_1.add(z);
         }
 
     }
+   
+    private static int verificacion(int i, char r){
+            int num = Util.Llenado(i);
+            String expr = "["+r+"-9]{"+i+"}";
+            String valor = ""+num;
 
-    private static int verificacion(int i, char r) {
-        int num = Util.Llenado(i);
-        String expr = "[" + r + "-9]{" + i + "}";
-        String valor = "" + num;
-
-        if (valor.matches(expr)) {
-            return num;
-        }
-        return verificacion(i, r);
+    if(valor.matches(expr)){
+        return num;
     }
+    return 0;
+}
 
-    public void promedio() {
+    public static void promedio() {
         if (Array_1.size() % 2 == 0) {
             promediopar();
         } else {
@@ -53,14 +55,14 @@ public class Array_1 {
             s += "[";
             for (int j = 0; j < 3; j++) {
 
-                s += T.get(i).getVect(j) + ", ";
+                s += T.get(i).getVect(j) + ",";
             }
             s += "]\n";
         }
         JOptionPane.showMessageDialog(null, s);
     }
 
-    private void promedioImpar() {
+    private static void promedioImpar() {
         float prom = 0;
         String cadP = "-";
         int j = 0;
@@ -80,7 +82,7 @@ public class Array_1 {
 
     }
 
-    private void promediopar() {
+    private static void promediopar() {
         float prom = 0;
         String cadP = "-";
         int j = 0;
