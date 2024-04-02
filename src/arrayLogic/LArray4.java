@@ -1,6 +1,8 @@
 package arrayLogic;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -55,6 +57,23 @@ public class LArray4 {
             System.out.println(array4.getCodigo()+"---Dato3");
 
         }
+    }
+
+    public ArrayList<Array4> Seguidos(){
+        String regex = "(\\d)\\1";
+        Pattern pattern = Pattern.compile(regex);
+        ArrayList<Array4> x = new ArrayList<>();
+        for (Array4 array4 : array4s) {
+       
+            String vect[] = array4.getCodigo().split("[ -]");
+            Matcher matcher = pattern.matcher(vect[2]);
+            Matcher matcher2 = pattern.matcher(vect[3]);
+
+            if (matcher.find() || matcher2.find()) {
+                x.add(array4);
+            } 
+        }
+        return x;
     }
 
 }
