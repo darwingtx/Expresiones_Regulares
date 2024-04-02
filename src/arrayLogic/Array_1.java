@@ -1,8 +1,11 @@
+package arrayLogic;
 
 
-import java.util.ArrayList;
+
+import java.util.*;
 
 import javax.swing.JOptionPane;
+import javax.swing.text.html.HTMLDocument.Iterator;
 
 import Utilidades.Util;
 
@@ -16,7 +19,7 @@ public class Array_1 {
     
     }
     
-    public void llenarArray_1(){
+    public static void llenarArray_1(){
         Util x = new Util();
         int i = 4;//x.Primo();
         for (int index = 0; index < i; index++) {
@@ -29,7 +32,7 @@ public class Array_1 {
 
     }
    
-    public int verificacion(int i, char r){
+    private static int verificacion(int i, char r){
             int num = Util.Llenado(i);
             String expr = "["+r+"-9]{"+i+"}";
             String valor = ""+num;
@@ -47,7 +50,20 @@ public class Array_1 {
             promedioImpar();
         }
     }
+       
+    public static void  mostrar(){
+        ArrayList<Array_1> T = Array_1;
+        String s = "";
+        for (int i = 0; i < T.size(); i++) {
+            s+= "[";
+           for(int j=0;j<3;j++){
 
+                  s+= T.get(i).getVect(j)+", ";
+           }
+           s+="]\n";
+        }
+        JOptionPane.showMessageDialog(null, s);
+        }
     private void promedioImpar(){
         float prom=0;
         String cadP = "-";

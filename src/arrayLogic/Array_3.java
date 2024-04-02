@@ -1,3 +1,5 @@
+package arrayLogic;
+
 import java.io.File;
 import java.util.*;
 import java.util.regex.Matcher;
