@@ -218,34 +218,31 @@ public class Menu {
         int op;
         do {
             op = Integer.parseInt(JOptionPane.showInputDialog(null, "-----Menu de Array 5-----\n"
-                    + "1.Cargar Tarjetas de Credito.\n"
-                    + "2.Ingresar Tarjetas de credito.\n"
-                    + "3.Motrar Tarjetas\n"
-                    + "4.Mostrar tarjetas por Visa y MasterCard\n"
-                    + "5.Buscar tarjetas por año\n"
+                    
+                    + "1.Ingresar Tarjetas de credito.\n"
+                    + "2.Motrar Tarjetas\n"
+                    + "3.Mostrar tarjetas por Visa y MasterCard\n"
+                    + "4.Buscar tarjetas por año\n"
                     + "0.Salir\n"));
             switch (op) {
+                
                 case 1:
-
-                    JOptionPane.showMessageDialog(null, "El Array ha sido llenado");
-                    break;
-                case 2:
 
                     x.Ingreso();
 
-                case 3:
+                case 2:
                     if (!x.getTarjetas().isEmpty()) {
                         x.Listar();
                     } else
                         JOptionPane.showMessageDialog(null, "El Array esta vacio");
                     break;
-                case 4:
+                case 3:
                     if (!x.getTarjetas().isEmpty()) {
 
                     } else
                         JOptionPane.showMessageDialog(null, "El Array esta vacio");
                     break;
-                case 5:
+                case 4:
                     if (!x.getTarjetas().isEmpty()) {
                         x.fecha();
                     } else

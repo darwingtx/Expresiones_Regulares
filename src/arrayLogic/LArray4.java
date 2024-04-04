@@ -110,10 +110,9 @@ public class LArray4 {
     public void Listar(ArrayList<Array4> x){
         String s = "";
         for (Array4 array4 : x) {
-           s+= array4.getDato1()+"---Dato1\n";
-            s+=array4.getDato2()+"---Dato2\n";
-            s+=array4.getCodigo()+"---Codigo\n";
-            s+="---------\n";
+           s+= "Dato 1: "+array4.getDato1();
+            s+="Dato 2: "+array4.getDato2();
+            s+="Codigo: "+array4.getCodigo();
         }
         Util.Listar(s, "Array4");
     }

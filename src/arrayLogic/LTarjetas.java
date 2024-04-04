@@ -19,7 +19,7 @@ public class LTarjetas {
     }
 
     public LTarjetas() {
-        CargarDatos("D:\\Users\\Usuario\\Documents\\NetBeansProjects\\AP4\\Expresiones_Regulares\\src\\Utilidades\\tarjetas.txts");
+        CargarDatos("src\\Utilidades\\tarjetas.txt");
        }
 
     public void Ingreso() {
@@ -104,7 +104,7 @@ public class LTarjetas {
             s += tarjetaCredito.getTipo() + "\n";
             s += tarjetaCredito.getNombre() + " " + tarjetaCredito.getApellido() + "\n";
             s += tarjetaCredito.getFecha() + "\n";
-            s += tarjetaCredito.getCvv();
+            s += tarjetaCredito.getCvv()+"\n\n";
 
             i++;
         }
@@ -141,4 +141,35 @@ public class LTarjetas {
         }
     }
 
+    public void CargarDatos(String sfichero) {
+        File fichero = new File(sfichero);
+        Scanner s = null;
+        try {
+            s = new Scanner(fichero);
+            
+
+            while (s.hasNextLine()) {
+                String linea = s.nextLine();
+                String[] cortarString = linea.split(";");
+                TarjetaCredito x = new TarjetaCredito();
+                    x.setTipo(cortarString[0]);
+                    x.setNumTarj(Long.parseLong(cortarString[1]));
+                    x.setNombre(cortarString[2]);
+                    x.setApellido(cortarString[3]);
+                    x.setFecha(cortarString[4]);
+                    x.setCvv(Short.parseShort(cortarString[5]));
+                    tarjetas.add(x);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (s != null)
+                    s.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+
+    }
 }
