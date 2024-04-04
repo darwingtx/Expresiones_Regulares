@@ -238,7 +238,7 @@ public class Menu {
                     break;
                 case 3:
                     if (!x.getTarjetas().isEmpty()) {
-
+                        x.tipoT();
                     } else
                         JOptionPane.showMessageDialog(null, "El Array esta vacio");
                     break;
