@@ -1,8 +1,7 @@
 package Menu;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import arrayLogic.*; 
+import arrayLogic.*;
 
 public class Menu {
 
@@ -21,7 +20,7 @@ public class Menu {
                     menuArray1();
                     break;
                 case 2:
-
+                    menuArray2();
                     break;
 
                 case 3:
@@ -29,10 +28,10 @@ public class Menu {
                     break;
 
                 case 4:
-
+                    menuArray4();
                     break;
                 case 5:
-
+                    menuArray5();
                     break;
                 case 0:
                     JOptionPane.showMessageDialog(null, "Hasta luego");
@@ -46,7 +45,7 @@ public class Menu {
 
     }
 
-    private void menuArray1()  {
+    private void menuArray1() {
 
         int op;
         do {
@@ -57,8 +56,8 @@ public class Menu {
                     + "0.Salir\n"));
             switch (op) {
                 case 1:
-                   Array_1.llenarArray_1();
-                   JOptionPane.showMessageDialog(null, "El Array ha sido llenado");
+                    Array_1.llenarArray_1();
+                    JOptionPane.showMessageDialog(null, "El Array ha sido llenado");
                     break;
                 case 2:
                     if (!Array_1.getArray_1().isEmpty()) {
@@ -75,7 +74,49 @@ public class Menu {
                     break;
 
                 case 0:
-                JOptionPane.showMessageDialog(null, "Volviendo...");
+                    JOptionPane.showMessageDialog(null, "Volviendo...");
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opcion incorrecta");
+                    break;
+            }
+        } while (op != 0);
+    }
+
+    private void menuArray2() {
+        Array2 x = new Array2();
+        int op;
+        do {
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "-----Menu de Array 2-----\n"
+                    + "1.Llenar ArrayList.\n"
+                    + "2.Mostrar ArrayList.\n"
+                    + "3.Numero mayor\n"
+                    + "0.Salir\n"));
+            switch (op) {
+                case 1:
+                    if (x.getArray2().isEmpty()) {
+                        x.LlenarArray2();
+                        JOptionPane.showMessageDialog(null, "El Array ha sido llenado");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El Array ha sido llenado anteriormente");
+                    }
+                    break;
+                case 2:
+                    if (!x.getArray2().isEmpty()) {
+                        x.Listar();
+                    } else
+                        JOptionPane.showMessageDialog(null, "El Array esta vacio");
+                    break;
+
+                case 3:
+                    if (!x.getArray2().isEmpty()) {
+                        x.Mayor();
+                    } else
+                        JOptionPane.showMessageDialog(null, "El Array esta vacio");
+                    break;
+
+                case 0:
+                    JOptionPane.showMessageDialog(null, "Volviendo...");
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Opcion incorrecta");
@@ -106,7 +147,7 @@ public class Menu {
                     break;
 
                 case 3:
-                 Array_3.mostrar(Array_3.Array_3);
+                    Array_3.mostrar(Array_3.Array_3);
                     break;
                 case 4:
                     Array_3.buscarTd();
@@ -116,7 +157,99 @@ public class Menu {
                     break;
 
                 case 6:
-                Array_3.docenteMes();
+                    Array_3.docenteMes();
+                    break;
+
+                case 0:
+                    JOptionPane.showMessageDialog(null, "Volviendo...");
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opcion incorrecta");
+                    break;
+            }
+        } while (op != 0);
+    }
+
+    private void menuArray4() {
+        LArray4 x = new LArray4();
+        int op;
+        do {
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "-----Menu de Array 4-----\n"
+                    + "1.Cargar ArrayList.\n"
+                    + "2.Ingresar datos.\n"
+                    + "3.Mostrar ArrayList.\n"
+                    + "4.Numeros seguidos(Codigo)\n"
+                    + "0.Salir\n"));
+            switch (op) {
+                case 1:
+                    x.CargarDatos();;
+                    JOptionPane.showMessageDialog(null, "El Array ha sido cargado");
+                    break;
+                case 2:
+                    x.Llenado();
+                    JOptionPane.showMessageDialog(null, "El Array ha sido llenado");
+                    break;
+                case 3:
+                    if (!x.getArray4().isEmpty()) {
+                        x.Listar();
+                    } else
+                        JOptionPane.showMessageDialog(null, "El Array esta vacio");
+                    break;
+
+                case 4:
+                    if (!x.getArray4().isEmpty()) {
+                        x.Seguidos();
+                    } else
+                        JOptionPane.showMessageDialog(null, "El Array esta vacio");
+                    break;
+
+                case 0:
+                    JOptionPane.showMessageDialog(null, "Volviendo...");
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opcion incorrecta");
+                    break;
+            }
+        } while (op != 0);
+    }
+
+    private void menuArray5() {
+        LTarjetas x = new LTarjetas();
+        int op;
+        do {
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "-----Menu de Array 5-----\n"
+                    + "1.Cargar Tarjetas de Credito.\n"
+                    + "2.Ingresar Tarjetas de credito.\n"
+                    + "3.Motrar Tarjetas\n"
+                    + "4.Mostrar tarjetas por Visa y MasterCard\n"
+                    + "5.Buscar tarjetas por año\n"
+                    + "0.Salir\n"));
+            switch (op) {
+                case 1:
+
+                    JOptionPane.showMessageDialog(null, "El Array ha sido llenado");
+                    break;
+                case 2:
+
+                    x.Ingreso();
+
+                case 3:
+                    if (!x.getTarjetas().isEmpty()) {
+                        x.Listar();
+                    } else
+                        JOptionPane.showMessageDialog(null, "El Array esta vacio");
+                    break;
+                case 4:
+                    if (!x.getTarjetas().isEmpty()) {
+
+                    } else
+                        JOptionPane.showMessageDialog(null, "El Array esta vacio");
+                    break;
+                case 5:
+                    if (!x.getTarjetas().isEmpty()) {
+                        x.fecha();
+                    } else
+                        JOptionPane.showMessageDialog(null, "El Array esta vacio");
                     break;
 
                 case 0:

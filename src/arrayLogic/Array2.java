@@ -15,7 +15,7 @@ public class Array2 {
 
     public void LlenarArray2() {
         int datos = 3;
-        int maxNodos = 2;// Util.Llenado(1, 4);
+        int maxNodos = Integer.parseInt(JOptionPane.showInputDialog(null,"Cuantos nodos ingresara?"));
         int num = 0;
         for (int i = 0; i < maxNodos; i++) {
             num = Integer.parseInt(
@@ -43,13 +43,17 @@ public class Array2 {
 
     public void Listar() {
         int datos = 3;
+        String s = "";
         for (int i = 0; i < Array_2.size(); i++) {
+            s+="[";
             for (int j = 0; j < datos; j++) {
-                System.out.println(Array_2.get(i).get(j));
+                s+= Array_2.get(i).get(j)+"  ";
             }
-            System.out.println("-------------");
+            s+="]--";
             datos += 2;
         }
+
+        Util.Listar(s, "Array_2");
     }
 
     public void NumeroMayor() {
@@ -90,7 +94,7 @@ public class Array2 {
             datos += 2;
 
         }
-        System.out.println(NumeroMayor);
+        JOptionPane.showMessageDialog(null,"Numero mayor es: " +NumeroMayor);
 
     }
 
@@ -103,5 +107,9 @@ public class Array2 {
             return true;
         }
         return false;
+    }
+
+    public ArrayList<ArrayList<Integer>> getArray2(){
+        return Array_2;
     }
 }

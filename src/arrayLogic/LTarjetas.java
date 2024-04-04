@@ -1,16 +1,20 @@
 package arrayLogic;
 
-import java.awt.Dimension;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+
+import Utilidades.Util;
 
 public class LTarjetas {
 
     private ArrayList<TarjetaCredito> tarjetas = new ArrayList<>();
+
+    public ArrayList<TarjetaCredito> getTarjetas() {
+        return tarjetas;
+    }
 
     public LTarjetas() {
 
@@ -90,7 +94,6 @@ public class LTarjetas {
     }
 
     public void Listar() {
-        int p = 500, t = 300;
         String s = "";
         int i = 1;
         for (TarjetaCredito tarjetaCredito : tarjetas) {
@@ -103,28 +106,36 @@ public class LTarjetas {
 
             i++;
         }
-        JTextArea textArea = new JTextArea(s);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        scrollPane.setPreferredSize(new Dimension(p, t));
-        JOptionPane.showMessageDialog(null, scrollPane, "Tarjetas de Credito", 1);
+        Util.Listar(s, "Tarjetas de Credito");
     }
 
-    public void fecha21() {
-        String regex = "^(0[1-9]|1[0-2])/21$";
+    public void fecha() {
+        String regexY = "^\\d{2}$";
+        String year = JOptionPane.showInputDialog(null, "Ingresa el año para filtar(yy)");
+        while (!year.matches(regexY)) {
+            year = JOptionPane.showInputDialog(null, "(Error)\nIngresa el año para filtar(yy)");
+        }
+        String regex = "^(0[1-9]|1[0-2])/" + year + "$";
         String s = "";
+        int i = 1;
         for (TarjetaCredito tarjetaCredito : tarjetas) {
             if (tarjetaCredito.getFecha().matches(regex)) {
+                s += "Tarjeta #" + i + "\n";
                 s += tarjetaCredito.getNumTarj() + "\n";
                 s += tarjetaCredito.getTipo() + "\n";
                 s += tarjetaCredito.getNombre() + " " + tarjetaCredito.getApellido() + "\n";
                 s += tarjetaCredito.getFecha() + "\n";
-                s += tarjetaCredito.getCvv()+"\n---------------";
+                s += tarjetaCredito.getCvv() + "\n---------------";
 
             }
-            System.out.println(s);
+            i++;
 
+        }
+        if (s.equals("")) {
+            System.out.println("No se encontro ninguna tarjeta con el año " + year+"\n");
+        } else {
+
+            System.out.println(s);
         }
     }
 

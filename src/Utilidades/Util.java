@@ -1,5 +1,10 @@
 package Utilidades;
+import java.awt.Dimension;
 import java.util.Random;
+
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 
 public class Util {
@@ -39,6 +44,16 @@ public class Util {
             }
         }
         return true;
+    }
+
+    public static void Listar(String s, String titulo){
+        int p = 500, t = 300;
+        JTextArea textArea = new JTextArea(s);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        scrollPane.setPreferredSize(new Dimension(p, t));
+        JOptionPane.showMessageDialog(null, scrollPane, titulo, 1);
     }
     
 }

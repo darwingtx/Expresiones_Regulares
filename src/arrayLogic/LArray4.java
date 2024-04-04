@@ -1,17 +1,46 @@
 package arrayLogic;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
-public class LArray4 {
+import Utilidades.Util;
 
+public class LArray4 {
+    String sfichero = "src\\Utilidades\\Datos4.txt";
     private ArrayList<Array4> array4s;
 
     public LArray4() {
         array4s = new ArrayList<>();
+    }
+
+    public void CargarDatos() {
+        File fichero = new File(sfichero);
+        Scanner s = null;
+        try {
+            s = new Scanner(fichero);
+
+            while (s.hasNextLine()) {
+                String linea = s.nextLine();
+                String[] cortarString = linea.split(",");
+                Array4 x = new Array4(cortarString[0],cortarString[1],cortarString[2]);
+                array4s.add(x);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (s != null)
+                    s.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+
     }
 
     public void Llenado() {
@@ -50,16 +79,17 @@ public class LArray4 {
     }
 
     public void Listar(){
-        
+        String s = "";
         for (Array4 array4 : array4s) {
-            System.out.println(array4.getDato1()+"---Dato1");
-            System.out.println(array4.getDato2()+"---Dato2");
-            System.out.println(array4.getCodigo()+"---Dato3");
-
+           s+= array4.getDato1()+"---Dato1\n";
+            s+=array4.getDato2()+"---Dato2\n";
+            s+=array4.getCodigo()+"---Codigo\n";
+            s+="---------\n";
         }
+        Util.Listar(s, "Array4");
     }
 
-    public ArrayList<Array4> Seguidos(){
+    public void Seguidos(){
         String regex = "(\\d)\\1";
         Pattern pattern = Pattern.compile(regex);
         ArrayList<Array4> x = new ArrayList<>();
@@ -73,7 +103,23 @@ public class LArray4 {
                 x.add(array4);
             } 
         }
-        return x;
+        Listar(x);
+        
+    }
+
+    public void Listar(ArrayList<Array4> x){
+        String s = "";
+        for (Array4 array4 : x) {
+           s+= array4.getDato1()+"---Dato1\n";
+            s+=array4.getDato2()+"---Dato2\n";
+            s+=array4.getCodigo()+"---Codigo\n";
+            s+="---------\n";
+        }
+        Util.Listar(s, "Array4");
+    }
+
+    public ArrayList<Array4> getArray4() {
+        return array4s;
     }
 
 }
