@@ -120,9 +120,8 @@ public class Array_3 {
             Matcher matcher = pattern.matcher(fecha);
             if (matcher.matches()) {
                 fechaValida = true;
-            } else {
-                System.out.println("Formato de fecha incorrecto. Por favor, vuelva a intentarlo.");
-            }
+            } else 
+                JOptionPane.showMessageDialog(null,  "Formato de fecha incorrecto. Por favor, vuelva a intentarlo.");
         } while (!fechaValida);
 
         return fecha;

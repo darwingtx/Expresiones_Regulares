@@ -1,7 +1,9 @@
 package arrayLogic;
 
 import java.time.Year;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -17,8 +19,8 @@ public class LTarjetas {
     }
 
     public LTarjetas() {
-
-    }
+        CargarDatos("D:\\Users\\Usuario\\Documents\\NetBeansProjects\\AP4\\Expresiones_Regulares\\src\\Utilidades\\tarjetas.txts");
+       }
 
     public void Ingreso() {
         String visa = "^5[0-9]{15}$";
