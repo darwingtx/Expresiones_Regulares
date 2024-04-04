@@ -2,7 +2,7 @@ package Menu;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import arrayLogic.*;
+import arrayLogic.*; 
 
 public class Menu {
 
@@ -46,7 +46,8 @@ public class Menu {
 
     }
 
-    private void menuArray1() {
+    private void menuArray1()  {
+
         int op;
         do {
             op = Integer.parseInt(JOptionPane.showInputDialog(null, "-----Menu de Array 1-----\n"
@@ -56,8 +57,8 @@ public class Menu {
                     + "0.Salir\n"));
             switch (op) {
                 case 1:
-                    Array_1.llenarArray_1();
-                    JOptionPane.showMessageDialog(null, "El Array ha sido llenado");
+                   Array_1.llenarArray_1();
+                   JOptionPane.showMessageDialog(null, "El Array ha sido llenado");
                     break;
                 case 2:
                     if (!Array_1.getArray_1().isEmpty()) {
@@ -127,4 +128,5 @@ public class Menu {
             }
         } while (op != 0);
     }
+
 }

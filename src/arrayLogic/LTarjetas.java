@@ -207,4 +207,22 @@ public class LTarjetas {
         scrollPane.setPreferredSize(new Dimension(p, t));
         JOptionPane.showMessageDialog(null, scrollPane, "Tarjetas de Credito", 1);
     }
+
+    public void fecha21() {
+        String regex = "^(0[1-9]|1[0-2])/21$";
+        String s = "";
+        for (TarjetaCredito tarjetaCredito : tarjetas) {
+            if (tarjetaCredito.getFecha().matches(regex)) {
+                s += tarjetaCredito.getNumTarj() + "\n";
+                s += tarjetaCredito.getTipo() + "\n";
+                s += tarjetaCredito.getNombre() + " " + tarjetaCredito.getApellido() + "\n";
+                s += tarjetaCredito.getFecha() + "\n";
+                s += tarjetaCredito.getCvv()+"\n---------------";
+
+            }
+            System.out.println(s);
+
+        }
+    }
+
 }

@@ -2,7 +2,6 @@ package arrayLogic;
 
 import java.util.*;
 import javax.swing.JOptionPane;
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 import Utilidades.Util;
 
@@ -19,39 +18,21 @@ public class Array_1 {
             Array_1.clear();
         }
         Util x = new Util();
-        int i = x.Primo();
+        int i = 4;//x.Primo();
         for (int index = 0; index < i; index++) {
-            Array_1 z = new Array_1();
-            long llenado = verificacion(index + 1,'0');
-            String llenx = Character.toString(Long.toString(llenado).charAt(0));;
-            while (!llenx.matches("[0-7]") || llenado == 0){
-                llenado = verificacion(index + 1,'0');
-                llenx = Character.toString(Long.toString(llenado).charAt(0));;
-            }
-            z.setVect(0, llenado);
-            llenado = verificacion(index + 1,Long.toString(z.getVect(0)).charAt(0));
-            llenx = Character.toString(Long.toString(llenado).charAt(0));;
-            while (!llenx.matches("[0-8]") || llenado == 0) {
-                llenado = verificacion(index + 1,Long.toString(z.getVect(0)).charAt(0));
-                llenx = Character.toString(Long.toString(llenado).charAt(0));;
-            }
-            z.setVect(1, llenado);
-            llenado = verificacion(index + 1,Long.toString(z.getVect(1)).charAt(0));
-            llenx = Character.toString(Long.toString(llenado).charAt(0));;
-            while (!llenx.matches("[0-9]") || llenado == 0) {
-                llenado = verificacion(index + 1,Long.toString(z.getVect(1)).charAt(0));
-                llenx = Character.toString(Long.toString(llenado).charAt(0));;
-            }
-            z.setVect(2, llenado);
-            Array_1.add(z);
+         Array_1 z = new Array_1();
+         z.setVect(0, verificacion(index+1,'0'));
+         z.setVect(1, verificacion(index+1, Long.toString(z.getVect(0)).charAt(0)));
+         z.setVect(2, verificacion(index+1,  Long.toString(z.getVect(1)).charAt(0)));
+         Array_1.add(z);
         }
 
     }
-    
+   
     private static int verificacion(int i, char r){
-        int num = Util.Llenado(i);
-        String expr = "["+r+"-9]{"+i+"}";
-        String valor = ""+num;
+            int num = Util.Llenado(i);
+            String expr = "["+r+"-9]{"+i+"}";
+            String valor = ""+num;
 
     if(valor.matches(expr)){
         return num;
