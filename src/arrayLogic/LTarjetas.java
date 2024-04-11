@@ -1,6 +1,5 @@
 package arrayLogic;
 
-import java.time.Year;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -129,7 +128,7 @@ public class LTarjetas {
                 s += tarjetaCredito.getTipo() + "\n";
                 s += tarjetaCredito.getNombre() + " " + tarjetaCredito.getApellido() + "\n";
                 s += tarjetaCredito.getFecha() + "\n";
-                s += tarjetaCredito.getCvv() + "\n---------------";
+                s += tarjetaCredito.getCvv() + "\n---------------\n";
 
             }
             i++;
@@ -230,12 +229,7 @@ public class LTarjetas {
 
             i++;
         }
-     JTextArea textArea = new JTextArea(s);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        scrollPane.setPreferredSize(new Dimension(p, t));
-        JOptionPane.showMessageDialog(null, scrollPane, "Tarjetas de Credito", 1);
+        Util.Listar(s, "Tarjetas de Credito");
     
     }
 

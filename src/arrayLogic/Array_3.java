@@ -61,7 +61,7 @@ public class Array_3 {
 
     public static void agregarObj() {
         String cc = "", nombre = "", tD = "", fecha = "";
-        int op = Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar\n0.Salir\n"));
+        int op = 0; //Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar\n0.Salir\n"));
         do {
             cc = ingresoCc();
             nombre = JOptionPane.showInputDialog(null, "Digite el nombre del docente.");
@@ -69,7 +69,7 @@ public class Array_3 {
             fecha = ingresofech();
             Array_3.add(new Array_3(cc, tD, fecha, nombre));
             op = Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar\n0.Salir\n"));
-        } while (op == 1);
+        } while (op !=0);
 
     }
 

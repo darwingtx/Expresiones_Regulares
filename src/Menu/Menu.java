@@ -139,7 +139,7 @@ public class Menu {
             switch (op) {
                 case 1:
                     Array_3.CargarDatos(
-                            "D:\\Users\\Usuario\\Documents\\NetBeansProjects\\AP4\\Expresiones_Regulares\\src\\Utilidades\\cargabasica.txt");
+                            "src\\Utilidades\\cargabasica.txt");
                     JOptionPane.showMessageDialog(null, "El Array ha sido llenado");
                     break;
                 case 2:
